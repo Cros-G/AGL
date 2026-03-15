@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Primary ── */
+  --color-primary: #1A73E8;
+  --color-primary-10: #041E49;
+  --color-primary-20: #062E6F;
+  --color-primary-30: #0842A0;
+  --color-primary-40: #1A73E8;
+  --color-primary-50: #4C8DF6;
+  --color-primary-60: #7CACF8;
+  --color-primary-container: #E8F0FE;
+
+  /* ── Surface ── */
+  --color-surface-dim: #F0F4F9;
+  --color-surface: #FFFFFF;
+  --color-surface-1: #F8FAFD;
+  --color-surface-2: #EEF3FA;
+  --color-surface-3: #E3EAF4;
+
+  /* ── On Surface ── */
+  --color-on-surface-high: #1F1F1F;
+  --color-on-surface-medium: #444746;
+  --color-on-surface-low: #747775;
+  --color-on-surface-disabled: #ADADAD;
+
+  /* ── Outline ── */
+  --color-outline: #C4C7C5;
+  --color-outline-variant: #E1E3E1;
+
+  /* ── Semantic: Diagnosis Status ── */
+  --color-sufficient-bg: #E6F4EA;
+  --color-sufficient-text: #137333;
+  --color-sufficient-icon: #34A853;
+  --color-partial-bg: #FEF7E0;
+  --color-partial-text: #B06000;
+  --color-partial-icon: #FBBC04;
+  --color-insufficient-bg: #FCE8E6;
+  --color-insufficient-text: #C5221F;
+  --color-insufficient-icon: #EA4335;
+  --color-eliminated-bg: #F1F3F4;
+  --color-eliminated-text: #80868B;
+  --color-eliminated-icon: #9AA0A6;
+  --color-info-bg: #E8F0FE;
+  --color-info-text: #1967D2;
+  --color-info-icon: #4285F4;
+
+  /* ── Layer Colors ── */
+  --color-layer-business-bg: #E8F0FE;
+  --color-layer-business-text: #1967D2;
+  --color-layer-performance-bg: #E6F4EA;
+  --color-layer-performance-text: #137333;
+  --color-layer-capability-bg: #FCE8E6;
+  --color-layer-capability-text: #C5221F;
+  --color-layer-environment-bg: #FEF7E0;
+  --color-layer-environment-text: #B06000;
+  --color-layer-management-bg: #F3E8FD;
+  --color-layer-management-text: #7627BB;
+  --color-layer-motivation-bg: #FDE7E0;
+  --color-layer-motivation-text: #B3261E;
+
+  /* ── Border Radius ── */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 28px;
+
+  /* ── Font Family ── */
+  --font-sans: 'Google Sans', 'Noto Sans SC', system-ui, sans-serif;
+  --font-mono: 'Google Sans Mono', 'Noto Sans Mono CJK SC', monospace;
+
+  /* ── Font Size ── */
+  --text-display-md: 28px;
+  --text-display-md--line-height: 36px;
+  --text-headline-sm: 20px;
+  --text-headline-sm--line-height: 28px;
+  --text-title-md: 16px;
+  --text-title-md--line-height: 24px;
+  --text-title-sm: 14px;
+  --text-title-sm--line-height: 20px;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 28px;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 24px;
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 16px;
+  --text-label-lg: 14px;
+  --text-label-lg--line-height: 20px;
+  --text-label-md: 12px;
+  --text-label-md--line-height: 16px;
+
+  /* ── Spacing ── */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+
+  /* ── Shadows ── */
+  --shadow-level-2: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-level-3: 0 4px 12px rgba(0,0,0,0.12);
+
+  /* ── Animations ── */
+  --animate-section-reveal: sectionReveal 400ms cubic-bezier(0.2,0,0,1) both;
+  --animate-update-flash: updateFlash 1500ms ease-out;
+  --animate-cursor-blink: cursorBlink 800ms ease-in-out infinite;
+}
+
+@keyframes sectionReveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes updateFlash {
+  0%   { background-color: #E8F0FE; }
+  100% { background-color: transparent; }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+/* ── Base Styles ── */
+html {
+  font-family: var(--font-sans);
+  color: var(--color-on-surface-high);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 1024px;
+}
+
+/* ── Scrollbar (Google-style thin) ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-on-surface-low);
+}

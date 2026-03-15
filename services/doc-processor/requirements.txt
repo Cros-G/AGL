@@ -1,0 +1,16 @@
+fastapi>=0.115.0
+uvicorn>=0.32.0
+python-multipart>=0.0.12
+
+# 文档处理
+markitdown>=0.1.0
+paddlepaddle>=3.0.0
+paddleocr>=2.9.0
+
+# 语音转写
+faster-whisper>=1.1.0
+
+# 工具
+Pillow>=10.0.0
+python-docx>=1.1.0
+PyPDF2>=3.0.0

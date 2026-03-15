@@ -1,0 +1,60 @@
+# === Dependencies ===
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# === Build output ===
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# === Environment & secrets ===
+.env
+.env.local
+.env*.local
+!.env.example
+
+# === Database ===
+prisma/dev.db
+prisma/dev.db-journal
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# === IDE & OS ===
+.DS_Store
+Thumbs.db
+*.pem
+
+# === Debug & test artifacts ===
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+test.txt
+test_*.wav
+test_*.docx
+test_*.png
+test_result.txt
+ocr_*.json
+ocr_*.txt
+
+# === Third-party reference repos (not our code) ===
+pi-mono/
+claude-code-system-prompts/
+superpowers/
+
+# === Vercel ===
+.vercel
+
+# === Cursor workspace cache ===
+.cursor/

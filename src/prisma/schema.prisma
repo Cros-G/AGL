@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  name      String
+  status    String   @default("active")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sessions  Session[]
+  diagnosis DiagnosisRecord?
+  snapshots Snapshot[]
+}
+
+model Session {
+  id        String    @id @default(cuid())
+  projectId String
+  project   Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  startedAt DateTime  @default(now())
+  endedAt   DateTime?
+
+  messages Message[]
+
+  @@index([projectId])
+}
+
+model Message {
+  id                  String   @id @default(cuid())
+  sessionId           String
+  session             Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role                String
+  content             String
+  diagnosisUpdateJson String?
+  createdAt           DateTime @default(now())
+
+  @@index([sessionId, createdAt])
+}
+
+model DiagnosisRecord {
+  id        String   @id @default(cuid())
+  projectId String   @unique
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  stateJson String   @default("{}")
+  version   Int      @default(1)
+  updatedAt DateTime @updatedAt
+}
+
+model Snapshot {
+  id          String   @id @default(cuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  stateJson   String
+  trigger     String
+  description String
+  createdAt   DateTime @default(now())
+
+  @@index([projectId, createdAt])
+}
